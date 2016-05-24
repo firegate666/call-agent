@@ -1,48 +1,15 @@
 <?php
 
-date_default_timezone_set('Europe/Berlin');
-session_start();
+require_once __DIR__ . '/bootstrap.php';
 
-$file_db = new PDO('sqlite:messaging.sqlite3');
-$file_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-$file_db->exec("
-  CREATE TABLE IF NOT EXISTS calls (
-      id INTEGER PRIMARY KEY,
-      start_date TEXT,
-      end_date TEXT,
-      call_reason TEXT,
-      call_result TEXT,
-      customer_number TEXT,
-      order_number TEXT,
-      something_else TEXT
-  )
-");
+/** @var PDO $file_db */
 
 if (!empty($_POST)) {
-    $insert = "
-      INSERT INTO calls (start_date, end_date, call_reason, call_result, customer_number, order_number, something_else)
-      VALUES (:start, :end, :reason, :result, :customer, :order, :else)
-    ";
-
-    $stmt = $file_db->prepare($insert);
-    $stmt->bindParam(':start', $_POST['start-date']);
-    $stmt->bindParam(':end', $_POST['end-date']);
-    $stmt->bindParam(':reason', $_POST['call-reason']);
-    $stmt->bindParam(':result', $_POST['call-result']);
-    $stmt->bindParam(':customer', $_POST['customer-number']);
-    $stmt->bindParam(':order', $_POST['order-number']);
-    $stmt->bindParam(':else', $_POST['something-else']);
-
-    $stmt->execute();
-
+    saveCall($file_db, $_POST);
     header('Location: index.php');
 }
 
-$select = 'SELECT id, start_date, end_date, call_reason, call_result, customer_number, order_number, something_else FROM calls ORDER BY id DESC';
-$stmt = $file_db->query($select);
-$list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+$list = getCalls($file_db);
 ?>
 
 <!DOCTYPE html>
@@ -168,26 +135,26 @@ $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </form>
 
-<?php if (!empty($list)): ?>
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <?php foreach (array_keys(current($list)) as $headline): ?>
-                    <th><?= $headline ?></th>
-                <?php endforeach ?>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($list as $idx => $call): ?>
+    <?php if (!empty($list)): ?>
+        <table class="table table-bordered table-striped">
+            <thead>
                 <tr>
-                    <?php foreach ($call as $data): ?>
-                        <td><?= $data ?></td>
+                    <?php foreach (array_keys(current($list)) as $headline): ?>
+                        <th><?= $headline ?></th>
                     <?php endforeach ?>
                 </tr>
-            <?php endforeach ?>
-        </tbody>
-    </table>
-<?php endif ?>
+            </thead>
+            <tbody>
+                <?php foreach ($list as $idx => $call): ?>
+                    <tr>
+                        <?php foreach ($call as $data): ?>
+                            <td><?= $data ?></td>
+                        <?php endforeach ?>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    <?php endif ?>
     </div>
 </body>
 </html>
