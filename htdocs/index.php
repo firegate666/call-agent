@@ -54,18 +54,18 @@ $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <title>Bootstrap 101 Template</title>
 
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bootstrap-datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="jquery-datatables/datatables.min.css"/>
+    <link href="components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="components/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet" />
 
-    <script src="jquery/jquery-2.2.4.min.js"></script>
-    <script src="moment/moment.js"></script>
-    <script src="moment/de.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
-    <script type="text/javascript" src="jquery-datatables/datatables.min.js"></script>
+    <script src="components/jquery/dist/jquery.min.js"></script>
+    <script src="components/moment/min/moment-with-locales.min.js"></script>
+    <script src="components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
     <script src="js/main.js"></script>
-
 </head>
 <body>
 <div class="container-fluid">

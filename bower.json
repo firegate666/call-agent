@@ -1,0 +1,13 @@
+{
+  "name": "call-agent",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "bootstrap": "^3.3.6",
+    "moment": "^2.13.0",
+    "datatables.net": "^1.10.12",
+    "datatables.net-bs": "^1.10.12",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.37"
+  },
+  "private": true
+}

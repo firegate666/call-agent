@@ -1,3 +1,4 @@
 /.idea/
 /htdocs/*.sqlite3
+/htdocs/components/
 /call-agent.iml
