@@ -1,0 +1,21 @@
+{
+  "name": "call-agent",
+  "description": "Small tool to track call center calls and result data. Uses PHP, SQLite, bootstrap and datatables  ",
+  "type": "application",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Marco Behnke",
+      "email": "marco@behnke.biz"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "phpmailer/phpmailer": "~5.2",
+    "doctrine/orm": "^2.5",
+    "symfony/yaml": "^3.0",
+    "firegate666/doctrine-sessionhandler": "1.1.*",
+    "monolog/monolog": "^1.17",
+    "phpoffice/phpexcel": "1.8.1"
+  }
+}

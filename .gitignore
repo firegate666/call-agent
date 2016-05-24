@@ -1,4 +1,10 @@
+# IDE files
 /.idea/
-/htdocs/*.sqlite3
-/htdocs/components/
 /call-agent.iml
+
+# external dependencies
+/htdocs/components/
+/vendor/
+
+# runtime data
+/htdocs/*.sqlite3
