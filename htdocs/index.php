@@ -32,6 +32,7 @@ $list = getCalls($file_db);
     <script src="components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
+    <link href="css/main.css" rel="stylesheet" />
     <script src="js/main.js"></script>
 </head>
 <body>
@@ -47,7 +48,10 @@ $list = getCalls($file_db);
                         <div class="row">
                             <div class="col-md-1">
                                 <div class="form-group">
-                                    <button type="button" class="btn btn-primary" id="manage-call">Anruf starten</button>
+                                    <button type="button" class="btn btn-primary" id="manage-call">
+                                        <span class="glyphicon glyphicon-refresh spinning hidden"></span>
+                                        <span class="message">Anruf starten</span>
+                                    </button>
                                 </div>
                             </div>
                             <div class="col-md-4">
